@@ -1,0 +1,22 @@
+- clean: ['~']
+
+- link:
+    # FISH SHELL
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/conf.d: fish/conf.d
+    ~/.config/fish/functions: fish/functions
+
+    # GIT
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+
+    # SSH
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+
+    # VIM/NVIM
+    ~/.vimrc: vimrc
+    ~/.config/nvim/init.vim: nvim/init.vim
+
+

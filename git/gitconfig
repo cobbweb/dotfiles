@@ -1,0 +1,9 @@
+[push]
+	default = simple
+[user]
+	name = Andrew Cobby
+	email = andrew.cobby@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[alias]
+	pyll = pull
