@@ -1,0 +1,68 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+.status-bar {
+  font-size: 0.8rem;
+}
+
+// style the background color of the tree view
+// .tree-view {
+  // background-color: whitesmoke;
+// }
+
+// green
+@normal-bg: rgb(105, 238, 103);
+// blue
+@insert-bg: rgb(7, 193, 242);
+// yellowish
+@visual-bg: rgb(255, 206, 98);
+
+
+// vim mode in the status bar at the bottom
+// make it nice and big so you can see it out of the corner of your eye
+// without thinking about it.
+.status-bar-vim-mode-plus-normal,
+.status-bar-vim-mode-plus-insert,
+.status-bar-vim-mode-plus-visual {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  width: 5rem;
+  text-transform: uppercase;
+  color: rgba(30, 30, 30, 0.55);
+}
+
+.status-bar-vim-mode-plus-normal {
+  background: @normal-bg;
+
+  &::after {
+    content: 'ormal'
+  }
+}
+
+.status-bar-vim-mode-plus-insert {
+  background: @insert-bg;
+
+  &::after {
+    content: 'nsert';
+  }
+}
+
+.status-bar-vim-mode-plus-visual {
+  background: @visual-bg;
+}
+
+
+// style the background and foreground colors on the atom-text-editor-element itself
+// atom-text-editor {
+//   background-color: hsl(180, 24%, 12%);
+// }

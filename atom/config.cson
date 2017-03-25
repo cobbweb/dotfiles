@@ -1,0 +1,71 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "6b3ee387-0e78-4e86-8d94-c1b33fafe910"
+    js:
+      indent_size: 2
+    typescript:
+      beautify_on_save: true
+      end_with_comma: true
+      end_with_newline: true
+      indent_size: 2
+  "atom-material-ui":
+    colors:
+      abaseColor: "#2196f3"
+      predefinedColor: "Blue"
+    tabs:
+      compactTabs: true
+      noTabMinWidth: true
+      tintedTabBar: true
+    treeView:
+      blendTabs: true
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  "base16-syntax":
+    scheme: "Atelier Seaside"
+  core:
+    ignoredNames: [
+      ".git"
+      ".DS_Store"
+      "*.pyc"
+      ".vscode"
+      "node_modules"
+    ]
+    openEmptyEditorOnStart: false
+    projectHome: "/Users/cobbweb/Sites"
+    telemetryConsent: "limited"
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+  editor:
+    fontFamily: "FuraCode Nerd Font"
+    fontSize: 15
+    invisibles: {}
+    scrollPastEnd: true
+    showInvisibles: true
+    tabType: "soft"
+  emmet:
+    extensionsPath: "~/.emmet"
+  "exception-reporting":
+    userId: "963e9b73-66bf-8ad6-4838-7e42603a57a8"
+  "language-babel": {}
+  "linter-ui-default":
+    showPanel: true
+  "one-dark-ui": {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+  zentabs:
+    neverCloseUnsaved: true
+".source.ts":
+  editor:
+    showIndentGuide: true
+conceal:
+  replacements:
+    ".": "*"
+    "this.": "@"
