@@ -27,7 +27,7 @@ set blue (set_color blue)
 
 
 # ENVIRONMENT VARIABLES
-set -gx EDITOR nvim
+set -gx EDITOR vim
 set -gx VISUAL $EDITOR
 set -gx NODE_ENV local
 

@@ -2,7 +2,7 @@
 alias l="ls -al"
 alias stt="subl ."
 alias ch="code ."
-alias vim="nvim"
+alias vim="vim"
 alias vh="vim ."
 alias vimrc="vim ~/.vimrc"
 alias efc="vim ~/.config/fish/config.fish"
