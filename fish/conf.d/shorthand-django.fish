@@ -1,11 +1,12 @@
 ## Custom Stuff for Django's CLI
 # set pythonpath and settings module
-set -gx PYTHONPATH /Users/cobbweb/Sites/Shorthand/Shorthand
+set shorthand_path /Users/cobbweb/Github/Shorthand/ShorthandPro
+set -gx PYTHONPATH $shorthand_path
 set -gx DJANGO_SETTINGS_MODULE Shorthand.settings.local
 
 # make manage.py usable from anywhere while the virtualenv is active
 function manage
-  python /Users/cobbweb/Sites/Shorthand/Shorthand/manage.py $argv
+  python $shorthand_path/manage.py $argv
 end
 
 # set up autocompletions
