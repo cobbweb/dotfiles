@@ -1,0 +1,193 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.openEditorAtIndex1"
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.openEditorAtIndex2"
+  },
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.openEditorAtIndex3"
+  },
+  {
+    "key": "cmd+4",
+    "command": "workbench.action.openEditorAtIndex4"
+  },
+  {
+    "key": "cmd+5",
+    "command": "workbench.action.openEditorAtIndex5"
+  },
+  {
+    "key": "cmd+6",
+    "command": "workbench.action.openEditorAtIndex6"
+  },
+  {
+    "key": "cmd+7",
+    "command": "workbench.action.openEditorAtIndex7"
+  },
+  {
+    "key": "cmd+8",
+    "command": "workbench.action.openEditorAtIndex8"
+  },
+  {
+    "key": "cmd+9",
+    "command": "workbench.action.openEditorAtIndex9"
+  },
+  {
+    "key": "ctrl+escape",
+    "command": "workbench.action.closeMessages"
+  },
+  {
+    "key": "cmd+shift+a",
+    "command": "extension.blockalign",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+x",
+    "command": "toggleFindCaseSensitive",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+cmd+=",
+    "command": "alignment.align",
+    "when": "editorHasSelection"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "extension.toggleSemicolon",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+;",
+    "command": "extension.toggleColon",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+,",
+    "command": "extension.toggleComma",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+v",
+    "command": "pasteAndIndent.action",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+v",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+v",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "workbench.action.focusNextGroup"
+  },
+  {
+    "key": "cmd+k cmd+right",
+    "command": "workbench.action.focusNextGroup"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "workbench.action.focusPreviousGroup"
+  },
+  {
+    "key": "cmd+k cmd+left",
+    "command": "-workbench.action.focusPreviousGroup"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.files.openFileFolder"
+  },
+  {
+    "key": "cmd+o",
+    "command": "-workbench.action.files.openFileFolder"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.showAllSymbols"
+  },
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+      "key": "j",
+      "command": "list.focusDown",
+      "when": "listFocus"
+  },
+  {
+      "key": "k",
+      "command": "list.focusUp",
+      "when": "listFocus"
+  },
+  {
+      "key": "enter",
+      "command": "list.select",
+      "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  {
+      "key": "o",
+      "command": "list.toggleExpand",
+      "when": "listFocus"
+  },
+  {
+      "key": "ctrl+j",
+      "command": "selectNextSuggestion",
+      "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+      "key": "ctrl+k",
+      "command": "selectPrevSuggestion",
+      "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+      "key": "ctrl+j",
+      "command": "workbench.action.quickOpenNavigateNext",
+      "when": "inQuickOpen"
+  },
+  {
+      "key": "ctrl+k",
+      "command": "workbench.action.quickOpenNavigatePrevious",
+      "when": "inQuickOpen"
+  },
+  {
+    "key": "\\ b",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "\\ t",
+    "command": "workbench.files.action.focusOpenEditorsView",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "\\ 1" ,
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "\\ 2" ,
+    "command": "workbench.action.focusSecondEditorGroup",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "\\ 3" ,
+    "command": "workbench.action.focusThirdEditorGroup",
+    "when": "!editorTextFocus"
+  }
+]

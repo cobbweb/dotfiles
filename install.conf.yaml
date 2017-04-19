@@ -20,8 +20,13 @@
     ~/.config/nvim/init.vim: nvim/init.vim
 
     # ATOM EDITOR
-    ~/.atom: 
+    ~/.atom:
       relink: true
+
+    # VSCODE
+    ~/Library/Application Support/Code/User:
+        path: vscode
+        relink: true
 
 
 

@@ -1,0 +1,301 @@
+// Place your settings in this file to overwrite the default settings
+{
+  // WINDOW
+  "window.newWindowDimensions": "maximized",
+  "window.zoomLevel": 1,
+  // EDITOR
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.lineNumbers": "relative",
+  "editor.tabCompletion": true,
+  "editor.fontLigatures": true,
+  "editor.rulers": [
+    80
+  ],
+  "editor.wordWrap": "off",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.fontFamily": "FuraCode Nerd Font, monospace",
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  // EXPLORER
+  "explorer.openEditors.visible": 0,
+  "explorer.autoReveal": false,
+  // MISC
+  "vscode_custom_css.imports": [
+    "file:///Users/cobbweb/.vscode.cobbweb.css"
+  ],
+  "vsicons.projectDetection.disableDetect": true,
+  "zenMode.fullScreen": false,
+  // VIM!!!!!!!!!
+  "vim.easymotion": true,
+  "vim.leader": "\\",
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors" : {
+      "normal": "#005f5f",
+      "insert": "#5f0000",
+      "visual": "#5f00af",
+      "visualline": "#005f87",
+      "visualblock": "#86592d",
+      "replace": "#000000"
+  },
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["leader", "w"],
+      "after": ["<Esc>"],
+      "commands": [
+        {
+          "command": "workbench.action.files.save",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["leader", "," ],
+      "after": [],
+      "commands": [
+        {
+          "command": "extension.toggleComma"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", ";" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "extension.toggleSemicolon"
+        }
+      ]
+    },
+    {
+      "before": [ "j", "j" ],
+      "after": [ "<Esc>" ]
+    }
+  ],
+  "vim.otherModesKeyBindings": [
+      {
+          "before": ["g", "c"],
+          "after": ["g", "b"]
+      },
+      {
+          "before": ["g", "C"],
+          "after": ["g", "B"]
+      }
+  ],
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": [ "leader", "w" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.files.save",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["leader", "q"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.files.save",
+          "args": []
+        },
+        {
+          "command": "workbench.action.closeActiveEditor",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "," ],
+      "after": [],
+      "commands": [
+        {
+          "command": "extension.toggleComma"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", ";" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "extension.toggleSemicolon"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "b" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.toggleSidebarVisibility"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "t" ],
+      "after": [],
+      "commands": [
+        { "command": "workbench.view.explorer" }
+      ]
+    },
+    {
+      "before": [ "leader", "1" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.focusFirstEditorGroup"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "2" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.focusSecondEditorGroup"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "3" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.focusThirdEditorGroup"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "s", "l" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.moveEditorToNextGroup"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "s", "h" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.moveEditorToPreviousGroup"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "s", "e" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.evenEditorWidths"
+        }
+      ]
+    },
+    {
+      "before": [ "leader", "s", "m" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.maximizeEditor"
+        }
+      ]
+    }
+  ],
+  "vim.easymotionMarkerForegroundColorOneChar": "#f44730",
+  // PLUGINS: GIT RELATED
+  // "gitlens.codeLens.visibility": "off",
+  "gitlens.blame.annotation.message": true,
+  // CORE CODE STYLE
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  // HTML
+  "html.format.indentInnerHtml": true,
+  "html.format.endWithNewline": true,
+  "html.suggest.angular1": false,
+  "html.suggest.ionic": false,
+  "auto-close-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "javascript"
+  ],
+  // JavaScript/TypeScript
+  "prettier.trailingComma": "es5",
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "files.associations": {
+    "*.jsx": "javascript"
+  },
+  // ELM
+  "elm-format.formatOnSave": true,
+  "[elm]": {
+    "editor.tabSize": 4
+  },
+  // SCSS
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "alignment.chars": {
+    ":": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "::": {
+      "spaceBefore": 0,
+      "spaceAfter": 0
+    },
+    "=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "===": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "==": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "=>": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "+=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "-=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "*=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "/=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "from": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    }
+  },
+  "csscomb.formatOnSave": true,
+  "csscomb.preset": "yandex",
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  "[haskell]": {
+    "editor.formatOnSave": true
+  },
+  "typescript.check.tscVersion": false
+}
