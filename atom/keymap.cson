@@ -11,11 +11,14 @@
 # Here's an example taken from Atom's built-in keymap:
 #
 # 'atom-text-editor':
+
 #   'enter': 'editor:newline'
     # 'cmd-p': 'command-palette:toggle'
 
 'atom-workspace atom-text-editor:not([mini])[data-grammar^="source ts"]':
   'ctrl-;': 'trailing-semicolon:semicolon'#
+
+
 # 'atom-workspace':
 #   'ctrl-shift-p': 'core:move-up'
 #   'ctrl-p': 'core:move-down'

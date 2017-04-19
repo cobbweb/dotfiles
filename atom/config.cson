@@ -2,6 +2,9 @@
   "atom-beautify":
     general:
       _analyticsUserId: "6b3ee387-0e78-4e86-8d94-c1b33fafe910"
+    html:
+      indent_size: 2
+      wrap_attributes_indent_size: 2
     js:
       indent_size: 2
     typescript:
@@ -25,7 +28,16 @@
       panelShadows: true
   "base16-syntax":
     scheme: "Atelier Seaside"
+  conceal:
+    preserveWidth: false
+    replacements:
+      return: "<-"
+      this: "@"
   core:
+    disabledPackages: [
+      "conceal"
+      "editorconfig"
+    ]
     ignoredNames: [
       ".git"
       ".DS_Store"
@@ -36,17 +48,17 @@
     openEmptyEditorOnStart: false
     projectHome: "/Users/cobbweb/Sites"
     telemetryConsent: "limited"
-    themes: [
-      "atom-material-ui"
-      "atom-material-syntax"
-    ]
   editor:
     fontFamily: "FuraCode Nerd Font"
     fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showInvisibles: true
-    tabType: "soft"
+  elmjutsu:
+    autocompleteEnabled: true
+    autocompleteMaxSuggestions: 10
+    cacheDirectory: "/var/folders/p9/0mzqtg997zv16bjyk4fcspw40000gn/T/elmjutsu65183Bb1bUJoMDw9"
+    showSidekick: true
   emmet:
     extensionsPath: "~/.emmet"
   "exception-reporting":
@@ -58,6 +70,10 @@
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
+  "vim-mode-plus":
+    dontUpdateRegisterOnChangeOrSubstitute: true
+    keymapCCToChangeInnerSmartWord: true
+    keymapPToPutWithAutoIndent: true
   welcome:
     showOnStartup: false
   zentabs:
@@ -65,7 +81,3 @@
 ".source.ts":
   editor:
     showIndentGuide: true
-conceal:
-  replacements:
-    ".": "*"
-    "this.": "@"
