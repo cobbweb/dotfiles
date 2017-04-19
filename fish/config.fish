@@ -30,6 +30,7 @@ set blue (set_color blue)
 set -gx EDITOR vim
 set -gx VISUAL $EDITOR
 set -gx NODE_ENV local
+set -gx PATH ~/.local/bin $PATH
 
 
 # SETUP AUTOJUMP
