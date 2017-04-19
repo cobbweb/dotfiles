@@ -1,5 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+  // Enable cmd+<num> to jump to tab
   {
     "key": "cmd+1",
     "command": "workbench.action.openEditorAtIndex1"
@@ -36,25 +37,24 @@
     "key": "cmd+9",
     "command": "workbench.action.openEditorAtIndex9"
   },
+  // These damn messages like to linger sometimes, shift+esc seems easier than this
   {
     "key": "ctrl+escape",
     "command": "workbench.action.closeMessages"
   },
-  {
-    "key": "cmd+shift+a",
-    "command": "extension.blockalign",
-    "when": "editorTextFocus"
-  },
+  // Toggle case sensitivity for cmd+d
   {
     "key": "alt+cmd+x",
     "command": "toggleFindCaseSensitive",
     "when": "editorFocus"
   },
+  // Align plugin shortcut
   {
     "key": "alt+cmd+=",
     "command": "alignment.align",
     "when": "editorHasSelection"
   },
+  // Toggle syntax at end of line (extension required)
   {
     "key": "ctrl+;",
     "command": "extension.toggleSemicolon",
@@ -70,6 +70,7 @@
     "command": "extension.toggleComma",
     "when": "editorTextFocus"
   },
+  // Use for the pasteAndIndent extension to clean up when pasting
   {
     "key": "cmd+v",
     "command": "pasteAndIndent.action",
@@ -85,34 +86,13 @@
     "command": "editor.action.clipboardPasteAction",
     "when": "editorTextFocus && !editorReadonly"
   },
-  {
-    "key": "alt+cmd+right",
-    "command": "workbench.action.focusNextGroup"
-  },
-  {
-    "key": "cmd+k cmd+right",
-    "command": "workbench.action.focusNextGroup"
-  },
-  {
-    "key": "alt+cmd+left",
-    "command": "workbench.action.focusPreviousGroup"
-  },
-  {
-    "key": "cmd+k cmd+left",
-    "command": "-workbench.action.focusPreviousGroup"
-  },
-  {
-    "key": "cmd+t",
-    "command": "workbench.action.files.openFileFolder"
-  },
-  {
-    "key": "cmd+o",
-    "command": "-workbench.action.files.openFileFolder"
-  },
+  // This is the default mapping for cmd+o
   {
     "key": "shift+cmd+t",
     "command": "workbench.action.showAllSymbols"
   },
+  // Because cmd+p is annoying.
+  // TODO: map to leader key for vim parity
   {
     "key": "cmd+t",
     "command": "-workbench.action.showAllSymbols"
@@ -121,10 +101,7 @@
     "key": "cmd+t",
     "command": "workbench.action.quickOpen"
   },
-  {
-    "key": "cmd+p",
-    "command": "-workbench.action.quickOpen"
-  },
+  // Enable vim movement in other parts of vscode UI (file explorer, etc)
   {
       "key": "j",
       "command": "list.focusDown",
@@ -165,16 +142,20 @@
       "command": "workbench.action.quickOpenNavigatePrevious",
       "when": "inQuickOpen"
   },
+  // Mappings to match bindings in vim plugin
+  // Toggle sidebar
   {
     "key": "\\ b",
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "!editorTextFocus"
   },
+  // Jump to file explorer
   {
     "key": "\\ t",
     "command": "workbench.files.action.focusOpenEditorsView",
     "when": "!editorTextFocus"
   },
+  // Focus editor group (split panes) by number
   {
     "key": "\\ 1" ,
     "command": "workbench.action.focusFirstEditorGroup",
