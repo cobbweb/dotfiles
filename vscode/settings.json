@@ -307,5 +307,6 @@
   "[haskell]": {
     "editor.formatOnSave": true
   },
-  "typescript.check.tscVersion": false
+  "typescript.check.tscVersion": false,
+  "material-icon-theme.showWelcomeMessage": false
 }
