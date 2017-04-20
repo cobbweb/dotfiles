@@ -2,9 +2,9 @@
 {
   // WINDOW
   "window.newWindowDimensions": "maximized",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   // EDITOR
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
   "editor.tabSize": 2,
   "editor.lineNumbers": "relative",
   "editor.tabCompletion": true,
