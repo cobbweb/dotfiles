@@ -112,6 +112,16 @@
       ]
     },
     {
+      "before": [ "H" ],
+      "after": [ "^" ],
+      "commands": []
+    },
+    {
+      "before": [ "L" ],
+      "after": [ "$" ],
+      "commands": []
+    },
+    {
       "before": [ "leader", "," ],
       "after": [],
       "commands": [
