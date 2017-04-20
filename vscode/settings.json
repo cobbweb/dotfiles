@@ -35,12 +35,12 @@
   "vim.leader": "\\",
   "vim.statusBarColorControl": true,
   "vim.statusBarColors" : {
-      "normal": "#005f5f",
-      "insert": "#5f0000",
-      "visual": "#5f00af",
-      "visualline": "#005f87",
-      "visualblock": "#86592d",
-      "replace": "#000000"
+      "normal": "#44475a", // "Current Line"
+      "insert": "#418b9a", // Based off Cyan
+      "visual": "#7b52b7", // Based off Purple
+      "visualline": "#b94989", // Based off Pink
+      "visualblock": "#af7a42", // Based off Orange
+      "replace": "#818837" // Based off Yellow
   },
   "vim.insertModeKeyBindingsNonRecursive": [
     {
