@@ -30,6 +30,18 @@
   ],
   "vsicons.projectDetection.disableDetect": true,
   "zenMode.fullScreen": false,
+  // rainbow brackets
+  "bracketPairColorizer.consecutivePairColors": [
+    "()",
+    "[]",
+    "{}",
+    [
+      "MediumSpringGreen",
+      "LightSkyBlue",
+      "Orchid"
+    ],
+    "Red"
+  ],
   // VIM!!!!!!!!!
   "vim.easymotion": true,
   "vim.leader": "\\",
