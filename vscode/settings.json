@@ -239,7 +239,7 @@
   ],
   "vim.easymotionMarkerForegroundColorOneChar": "#f44730",
   // PLUGINS: GIT RELATED
-  // "gitlens.codeLens.visibility": "off",
+  "gitlens.codeLens.visibility": "off",
   "gitlens.blame.annotation.message": true,
   // CORE CODE STYLE
   "files.trimTrailingWhitespace": true,
