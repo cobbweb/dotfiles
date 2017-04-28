@@ -88,16 +88,6 @@
       "after": [ "<Esc>" ]
     }
   ],
-  "vim.otherModesKeyBindings": [
-      {
-          "before": ["g", "c"],
-          "after": ["g", "b"]
-      },
-      {
-          "before": ["g", "C"],
-          "after": ["g", "B"]
-      }
-  ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": [ "leader", "w" ],
