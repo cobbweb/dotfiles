@@ -32,6 +32,8 @@ set -gx VISUAL $EDITOR
 set -gx NODE_ENV local
 set -gx PATH ~/.local/bin $PATH
 
+set -gx fish_color_param $magenta
+
 
 # SETUP AUTOJUMP
 source /usr/local/share/autojump/autojump.fish
