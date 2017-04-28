@@ -122,6 +122,13 @@
       "commands": []
     },
     {
+      "before": [ "leader", "p" ],
+      "after": [],
+      "commands": [
+        { "command": "workbench.action.quickOpen" }
+      ]
+    },
+    {
       "before": [ "leader", "," ],
       "after": [],
       "commands": [
