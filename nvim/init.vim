@@ -24,6 +24,7 @@ if dein#load_state('/Users/cobbweb/.dein')
   " Styling
   call dein#add('mhartington/oceanic-next')
   " call dein#add('rakr/vim-one')
+  call dein#add('dracula/vim')
 
   " Code completion and other helpers
   " call dein#add('Shougo/deoplete.nvim')
@@ -55,12 +56,11 @@ set softtabstop=2
 set mouse=a
 
 " EDITING UI AND HIGHLIGHTING
-if (has("termguicolors"))
-  set termguicolors
-endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
+set termguicolors
 
 syntax enable
-colorscheme OceanicNext
+colorscheme dracula
 set background=dark
 set number
 set relativenumber
