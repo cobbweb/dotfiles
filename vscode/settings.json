@@ -226,6 +226,15 @@
           "command": "workbench.action.maximizeEditor"
         }
       ]
+    },
+    {
+      "before": [ "`", "`" ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.navigateBack"
+        }
+      ]
     }
   ],
   "vim.easymotionMarkerForegroundColorOneChar": "#f44730",
