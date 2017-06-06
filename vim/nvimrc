@@ -1,0 +1,202 @@
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+call plug#begin('~/.local/share/nvim/plugged')
+
+  " Misc
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-fugitive'
+
+  " Navigation
+  Plug 'easymotion/vim-easymotion'
+  Plug 'unblevable/quick-scope'
+
+  " FZF
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+  Plug 'junegunn/fzf.vim'
+    " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
+  " Airline
+  Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_powerline_fonts = 1
+    let g:airline_theme='dracula'
+
+  " File exploring
+  Plug 'scrooloose/nerdtree'
+    nnoremap <leader>t :NERDTreeToggle<cr>
+    
+  " UI
+  Plug 'airblade/vim-gitgutter'
+  Plug 'junegunn/vim-peekaboo'
+
+  " Style
+  Plug 'dracula/vim'
+  Plug 'nathanaelkane/vim-indent-guides'
+
+  " Language features
+  Plug 'Shougo/deoplete.nvim'
+    let g:deoplete#enable_at_startup = 1
+    " let g:deoplete#omni#functions = {}
+    " let g:deoplete#sources = {}
+    " let g:deoplete#sources._ = ['file', 'neosnippet']
+    " let g:deoplete#omni#input_patterns = {}
+    
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'sbdchd/neoformat'
+  Plug 'w0rp/ale', { 'on': ['ALEEnable', 'ALEToggle'] }
+
+  " Languages
+  Plug 'sheerun/vim-polyglot'
+    let g:polyglot_disabled = ['elm']
+    
+  " JAVASCRIPT
+  " Base lang support from vim-polyglot
+  Plug 'mxw/vim-jsx' 
+  Plug 'carlitux/deoplete-ternjs'
+  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+  
+  Plug 'alx741/vim-hindent'
+  Plug 'mattn/emmet-vim'
+  
+  " Elm
+  Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
+  Plug 'ElmCast/elm-vim', { 'for': 'elm' }
+    let g:elm_format_autosave = 1
+    let g:elm_detailed_complete = 1
+    let g:elm_syntastic_show_warnings = 1
+    let g:elm_setup_keybindings = 0
+    autocmd FileType elm set tabstop=4 softtabstop=4 shiftwidth=4
+    " let g:elm_format_fail_silently = 1
+    " let g:elm_browser_command = 'open'
+    " let g:elm_make_show_warnings = 1
+    " let g:deoplete#omni#functions.elm = ['elm#Complete']
+    " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
+    " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
+
+call plug#end()
+
+
+
+" Settings
+filetype plugin indent on
+set whichwrap+=<,>,[,]
+set colorcolumn=80
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set hidden
+set autoread
+
+" Mouse
+set mouse=a
+
+" EDITING UI AND HIGHLIGHTING
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
+set termguicolors
+
+syntax enable
+color dracula
+colorscheme dracula
+set background=dark
+set number
+set relativenumber
+set cursorline
+
+
+" Split tricks
+set splitbelow
+set splitright
+
+
+" Use formatprg when available
+" let g:neoformat_try_formatprg = 1
+
+" JAVASCRIPT
+
+" Code completion settings
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" tern
+autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'javascript',
+                \ ]
+
+" Cool conceal
+let g:javascript_conceal_null = "ø"
+let g:javascript_conceal_static = "@"
+" let g:javascript_conceal_this = "@"
+
+" Syntax highlighting tweaks
+autocmd FileType javascript,javascript.jsx syntax match   jsFauxConstant "\<[A-Z0-9_\$]\+\>"
+autocmd FileType javascript,javascript.jsx syntax cluster jsImportContainer    add=jsFauxConstant
+autocmd FileType javascript,javascript.jsx syntax cluster jsDestructuringBlock add=jsFauxConstant
+autocmd FileType javascript,javascript.jsx syntax cluster jsExpression         add=jsFauxConstant
+autocmd FileType javascript,javascript.jsx syntax cluster jsDestructuringBlock add=jsFauxConstant
+
+highlight link jsFuncCall Function
+highlight link jsFauxConstant Boolean
+
+" Auto Semi-colon & comma
+nnoremap <leader>; me:call ToggleEndChar(';')<cr>`e
+nnoremap <leader>, me:call ToggleEndChar(',')<cr>`e
+inoremap <leader>; <Esc>me:call ToggleEndChar(';')<cr>`ea
+inoremap <leader>, <Esc>me:call ToggleEndChar(',')<cr>`ea
+
+function! ToggleEndChar(charToMatch)
+    s/\v(.)$/\=submatch(1)==a:charToMatch ? '' : submatch(1).a:charToMatch
+endfunction
+
+
+" Prettier
+autocmd BufWritePre *.js Neoformat
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_javascript_prettier = {
+        \ 'exe': 'prettier',
+        \ 'args': ['--trailing-comma es5', '--stdin'],
+        \ 'stdin': 1,
+        \ }
+
+" File ignores
+set wildignore+=.git,.svn
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+set wildignore+=*.sw?
+set wildignore+=.DS_Store
+set wildignore+=node_modules,bower_components,elm-stuff
+
+" GUI
+set laststatus=2 " fix vssim-airline not showing
+
+" Bindings
+noremap <leader>p :Files<cr>
+inoremap <leader>w <Esc>:w<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :bd<cr>
+noremap <C-j> :bprevious<cr>
+noremap <C-k> :bnext<cr>
+inoremap jw <Esc>
+inoremap <D-cr> <C-o>o
+
+
+
+" Maintain indent in normal mode
+inoremap <CR> <CR>x<BS>
+nnoremap o ox<BS>
+nnoremap O Ox<BS>
+
