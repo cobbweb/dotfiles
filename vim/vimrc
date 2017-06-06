@@ -34,10 +34,12 @@ if dein#load_state('/Users/cobbweb/.dein')
   call dein#add('jiangmiao/auto-pairs')
 
   " Languages
-  call dein#add('sheerun/vim-polyglot')
+  " call dein#add('sheerun/vim-polyglot')
   " call dein#add('mhartington/nvim-typescript')
   " call dein#add('carlitux/deoplete-ternjs')
-  call dein#add('alx741/vim-hindent')
+  call dein#add('pangloss/vim-javascript')
+  call dein#add('frigoeu/psc-ide-vim')
+  call dein#add('elzr/vim-json')
 
   " Required:
   call dein#end()
@@ -54,6 +56,7 @@ set colorcolumn=80
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set directory=~/.vim/swap//
 
 " Mouse
 set mouse=a
@@ -67,19 +70,13 @@ syntax enable
 color dracula
 colorscheme dracula
 set background=dark
-set guifont=FuraCode\ Nerd\ Font:h14
+set guifont=FuraCode\ Nerd\ Font:h15
 set number
-set norelativenumber
-set nocursorline
+set relativenumber
+set cursorline
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set conceallevel=1
-
-set whichwrap+=<,>,[,]
-set colorcolumn=80
-set expandtab
-set shiftwidth=2
-set softtabstop=2
 
 " Code completion settings
 " let g:deoplete#enable_at_startup=1
@@ -90,8 +87,8 @@ set softtabstop=2
 set autoindent
 
 let g:javascript_conceal_null = "ø"
-let g:javascript_conceal_static = "@"
 let g:javascript_conceal_this = "@"
+highlight link jsFuncCall Function
 
 " File ignores
 set wildignore+=.git,.svn
@@ -104,4 +101,19 @@ set wildignore+=node_modules,bower_components,elm-stuff
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dracula'
-set laststatus=2 " fix vim-airline not showing
+set laststatus=2 " fix vssim-airline not showing
+
+let g:ctrlp_open_func = { 'files': 'CustomOpenFunc' }
+function! CustomOpenFunc(action, line)
+    call call('ctrlp#acceptfile', [':t', a:line])
+endfunction
+
+" Bindings
+nnoremap <leader>t :NERDTreeToggle<cr>
+noremap <leader>p :Files<cr>
+inoremap <leader>w <Esc>:w<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <C-j> :bprevious<cr>
+nnoremap <C-k> :bnext<cr>
+
+

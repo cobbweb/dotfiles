@@ -16,8 +16,8 @@
         create: true
 
     # VIM/NVIM
-    ~/.vimrc: vimrc
-    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.vimrc: vim/vimrc
+    ~/.config/nvim/init.vim: vim/nvimrc
 
     # ATOM EDITOR
     ~/.atom:
