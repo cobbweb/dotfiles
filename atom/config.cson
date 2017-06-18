@@ -37,6 +37,7 @@
     disabledPackages: [
       "conceal"
       "editorconfig"
+      "atomify"
     ]
     ignoredNames: [
       ".git"
@@ -48,6 +49,10 @@
     openEmptyEditorOnStart: false
     projectHome: "/Users/cobbweb/Sites"
     telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "dracula-theme"
+    ]
   editor:
     fontFamily: "FuraCode Nerd Font"
     fontSize: 15
@@ -63,6 +68,8 @@
     extensionsPath: "~/.emmet"
   "exception-reporting":
     userId: "963e9b73-66bf-8ad6-4838-7e42603a57a8"
+  "ide-purescript":
+    addNpmPath: true
   "language-babel": {}
   "linter-ui-default":
     showPanel: true

@@ -10,7 +10,8 @@
 #
 # Here's an example taken from Atom's built-in keymap:
 #
-# 'atom-text-editor':
+'atom-text-editor':
+  '\\ w': 'core:save'
 
 #   'enter': 'editor:newline'
     # 'cmd-p': 'command-palette:toggle'
@@ -18,8 +19,12 @@
 'atom-workspace atom-text-editor:not([mini])[data-grammar^="source ts"]':
   'ctrl-;': 'trailing-semicolon:semicolon'#
 
+'atom-text-editor.vim-mode-plus.insert-mode':
+  '\\ w': 'user:activate-normal-mode-and-save'
 
-# 'atom-workspace':
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  '\\ p': 'fuzzy-finder:toggle-file-finder'
+  '\\ \\ f': 'easy-motion-redux:letter'
 #   'ctrl-shift-p': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
 #

@@ -12,6 +12,16 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Navigation
   Plug 'easymotion/vim-easymotion'
+    " Gif config
+    map  / <Plug>(easymotion-sn)
+    omap / <Plug>(easymotion-tn)
+
+    " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+    " Without these mappings, `n` & `N` works fine. (These mappings just provide
+    " different highlight method and have some other features )
+    map  n <Plug>(easymotion-next)
+    map  N <Plug>(easymotion-prev)
+    
   Plug 'unblevable/quick-scope'
 
   " FZF
@@ -20,10 +30,18 @@ call plug#begin('~/.local/share/nvim/plugged')
     " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
     command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   'rg --column --line-number --no-heading --color=always --glob "!.git/*"'.shellescape(<q-args>), 1,
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
+    
+
+    " Command for git grep
+    " - fzf#vim#grep(command, with_column, [options], [fullscreen])
+    command! -bang -nargs=* GGrep
+      \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+    
+    nnoremap <leader>e :FLines<cr>
 
   " Airline
   Plug 'vim-airline/vim-airline'
@@ -39,6 +57,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " UI
   Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/vim-peekaboo'
+  Plug 'mhinz/vim-startify'
+  Plug 'ryanoasis/vim-devicons'
+    let g:airline_powerline_fonts = 1
 
   " Style
   Plug 'dracula/vim'
@@ -57,6 +78,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'sbdchd/neoformat'
+    let g:neoformat_enabled_javascript = ['prettier']
+    autocmd BufWritePre *.js,*.jsx Neoformat prettier
+    
   Plug 'w0rp/ale', { 'on': ['ALEEnable', 'ALEToggle'] }
 
   " Languages
@@ -164,15 +188,6 @@ function! ToggleEndChar(charToMatch)
 endfunction
 
 
-" Prettier
-autocmd BufWritePre *.js Neoformat
-let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_javascript_prettier = {
-        \ 'exe': 'prettier',
-        \ 'args': ['--trailing-comma es5', '--stdin'],
-        \ 'stdin': 1,
-        \ }
-
 " File ignores
 set wildignore+=.git,.svn
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
@@ -190,6 +205,8 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>q :bd<cr>
 noremap <C-j> :bprevious<cr>
 noremap <C-k> :bnext<cr>
+nnoremap <leader>l :BLines<cr>
+nnoremap <leader>f :Rg<cr>
 inoremap jw <Esc>
 inoremap <D-cr> <C-o>o
 

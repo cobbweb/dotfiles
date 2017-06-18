@@ -9,3 +9,11 @@
 # atom.workspace.observeTextEditors (editor) ->
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
+atom.keymaps.partialMatchTimeout = 90
+
+atom.commands.add 'atom-text-editor',
+  'user:activate-normal-mode-and-save': (event) ->
+    commands = ['vim-mode-plus:activate-normal-mode', 'core:save']
+    atomTextEditor = document.querySelector('atom-text-editor')
+    commands.forEach (command) ->
+      atom.commands.dispatch atomTextEditor, command

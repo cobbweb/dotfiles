@@ -7,6 +7,7 @@ alias vh="vim ."
 alias vimrc="vim ~/.vimrc"
 alias efc="vim ~/.config/fish/config.fish"
 alias mvh="mvim ."
+alias nvh="vimr -s ."
 alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
 
 # npm
