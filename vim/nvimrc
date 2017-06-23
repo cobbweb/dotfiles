@@ -1,16 +1,19 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
 call plug#begin('~/.local/share/nvim/plugged')
 
   " Misc
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-abolish'
+  Plug 'blindFS/vim-taskwarrior'
+  
+  " Git
   Plug 'tpope/vim-fugitive'
+  Plug 'idanarye/vim-merginal'
+  Plug 'gregsexton/gitv', {'on': ['Gitv']}
 
   " Navigation
+  " Plug 'unblevable/quick-scope'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'yuttie/comfortable-motion.vim'
   Plug 'easymotion/vim-easymotion'
     " Gif config
     map  / <Plug>(easymotion-sn)
@@ -22,7 +25,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     map  n <Plug>(easymotion-next)
     map  N <Plug>(easymotion-prev)
     
-  Plug 'unblevable/quick-scope'
 
   " FZF
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
@@ -48,21 +50,26 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     let g:airline#extensions#tabline#enabled = 1
     let g:airline_powerline_fonts = 1
-    let g:airline_theme='dracula'
+    let g:airline_theme='quantum'
 
-  " File exploring
+  " " File exploring
   Plug 'scrooloose/nerdtree'
-    nnoremap <leader>t :NERDTreeToggle<cr>
+  Plug 'jistr/vim-nerdtree-tabs'
+    nnoremap <leader>t :NERDTreeTabsToggle<cr>
     
   " UI
   Plug 'airblade/vim-gitgutter'
+    " disable default <leader>h mappings
+    let g:gitgutter_map_keys = 0
+    
   Plug 'junegunn/vim-peekaboo'
   Plug 'mhinz/vim-startify'
-  Plug 'ryanoasis/vim-devicons'
-    let g:airline_powerline_fonts = 1
 
   " Style
-  Plug 'dracula/vim'
+  " Plug 'dracula/vim'
+  " Plug 'joshdick/onedark.vim'
+  Plug 'KeitaNakamura/neodark.vim'
+  " Plug 'tyrannicaltoucan/vim-quantum'
   Plug 'nathanaelkane/vim-indent-guides'
 
   " Language features
@@ -81,7 +88,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     let g:neoformat_enabled_javascript = ['prettier']
     autocmd BufWritePre *.js,*.jsx Neoformat prettier
     
-  Plug 'w0rp/ale', { 'on': ['ALEEnable', 'ALEToggle'] }
+  " Plug 'w0rp/ale', { 'on': ['ALEEnable', 'ALEToggle'] }
 
   " Languages
   Plug 'sheerun/vim-polyglot'
@@ -92,6 +99,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mxw/vim-jsx' 
   Plug 'carlitux/deoplete-ternjs'
   Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+    autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+    let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'javascript',
+                \ ]
   
   Plug 'alx741/vim-hindent'
   Plug 'mattn/emmet-vim'
@@ -110,35 +123,41 @@ call plug#begin('~/.local/share/nvim/plugged')
     " let g:deoplete#omni#functions.elm = ['elm#Complete']
     " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
     " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
+    
+  " Run last, as per devicons README
+  Plug 'ryanoasis/vim-devicons'
+    let g:airline_powerline_fonts = 1
 
 call plug#end()
 
 
 
 " Settings
-filetype plugin indent on
+set encoding=utf8
 set whichwrap+=<,>,[,]
 set colorcolumn=80
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 set hidden
-set autoread
 
 " Mouse
 set mouse=a
 
 " EDITING UI AND HIGHLIGHTING
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
 set termguicolors
+if exists('$TMUX')
+  set t_Co=256
+endif
 
-syntax enable
-color dracula
-colorscheme dracula
+colorscheme neodark
+" let g:quantum_black=1
+let g:neodark#background = '#202020'
 set background=dark
-set number
 set relativenumber
 set cursorline
+" guifont breaks in VimR
+" set guifont=FuraCode\ Nerd\ Font\ Medium:h16
 
 
 " Split tricks
@@ -146,21 +165,12 @@ set splitbelow
 set splitright
 
 
-" Use formatprg when available
-" let g:neoformat_try_formatprg = 1
-
 " JAVASCRIPT
 
 " Code completion settings
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " tern
-autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-let g:tern#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'javascript',
-                \ ]
 
 " Cool conceal
 let g:javascript_conceal_null = "ø"
@@ -199,18 +209,44 @@ set wildignore+=node_modules,bower_components,elm-stuff
 set laststatus=2 " fix vssim-airline not showing
 
 " Bindings
+" Fuzzy open files
 noremap <leader>p :Files<cr>
+
+" Saving, closing and quiting
 inoremap <leader>w <Esc>:w<cr>
 nnoremap <leader>w :w<cr>
-nnoremap <leader>q :bd<cr>
-noremap <C-j> :bprevious<cr>
-noremap <C-k> :bnext<cr>
-nnoremap <leader>l :BLines<cr>
-nnoremap <leader>f :Rg<cr>
+inoremap <leader>e <Esc>:q<cr>
+nnoremap <leader>e :q<cr>
+nnoremap <leader>E :q!<cr>
+nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR><cr>
+
+" Clear current highlighting
+nnoremap <leader><esc> :noh<cr>
+
+" Pane navigation
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
+
+" Buffer switching
+noremap <leader>a :bprevious<cr>
+noremap <leader>l :bnext<cr>
+
+" Finding lines of code
+nnoremap <leader>ff :Lines<cr>
+nnoremap <leader>fp :GGrep<cr>
+
+" Exiting insert mode hacks
 inoremap jw <Esc>
-inoremap <D-cr> <C-o>o
+inoremap wj <Esc>
 
-
+" Git Gutter
+noremap <leader>ghs :GitGutterStageHunk<cr>
+noremap <leader>ghu :GitGutterUndoHunk<cr>
+noremap <leader>ghv :GitGutterPreviewHunk<cr>
+noremap <leader>ghn :GitGutterNextHunk<cr>
+noremap <leader>ghp :GitGutterPrevHunk<cr>
 
 " Maintain indent in normal mode
 inoremap <CR> <CR>x<BS>

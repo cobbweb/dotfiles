@@ -2,18 +2,20 @@
 alias l="ls -al"
 alias stt="subl ."
 alias ch="code ."
-alias vim="vim"
+alias vim="nvim"
+alias realvim="/usr/local/bin/vim"
 alias vh="vim ."
 alias vimrc="vim ~/.vimrc"
 alias efc="vim ~/.config/fish/config.fish"
 alias mvh="mvim ."
-alias nvh="vimr -s ."
+alias nvh="nvim ."
 alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
 
 # npm
 alias lnrd="set -lx NODE_ENV local; npm run dev"
 abbr -a lnpm="set -lx NODE_ENV local; and npm"
 abbr -a nr="npm run"
+abbr -a nra="npm-run-all"
 
 # git
 abbr -a gco="git checkout"
@@ -41,3 +43,7 @@ alias grph="git rev-parse HEAD"
 alias gl="git log --oneline --graph"
 alias gd="git diff"
 alias gds="git diff --staged"
+
+
+# misc
+alias fuzzkill="ps aux | fzf | awk 'print $2' | xargs kill"

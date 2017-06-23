@@ -29,6 +29,7 @@
         relink: true
         
     ~/.tigrc: tig/tigrc
+    ~/.tmux.conf: tmux/tmux.conf
     
 
 
