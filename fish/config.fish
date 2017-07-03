@@ -78,3 +78,4 @@ bind \t fzf-complete
 bind \e\t complete
 bind -M insert \t fzf-complete
 bind -M insert \e\t complete
+set -g fish_user_paths "/usr/local/opt/postgresql@9.4/bin" $fish_user_paths

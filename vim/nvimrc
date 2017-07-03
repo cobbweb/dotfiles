@@ -215,12 +215,12 @@ set laststatus=2 " fix vssim-airline not showing
 noremap <leader>p :Files<cr>
 
 " Saving, closing and quiting
-inoremap <leader>w <Esc>:w<cr>
-nnoremap <leader>w :w<cr>
-inoremap <leader>e <Esc>:q<cr>
-nnoremap <leader>e :q<cr>
-nnoremap <leader>E :q!<cr>
-nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR><cr>
+inoremap <leader>s <Esc>:w<cr>
+nnoremap <leader>s :w<cr>
+inoremap <leader>q <Esc>:q<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>Q :q!<cr>
+nnoremap <leader>w :bp<bar>sp<bar>bn<bar>bd<CR><cr>
 
 " Clear current highlighting
 nnoremap <leader><esc> :noh<cr>
