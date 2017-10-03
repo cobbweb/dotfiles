@@ -2,7 +2,7 @@
 {
   // WINDOW
   "window.newWindowDimensions": "maximized",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   // EDITOR
   "editor.fontSize": 15,
   "editor.tabSize": 2,
@@ -58,7 +58,7 @@
   },
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": ["leader", "w"],
+      "before": ["leader", "s"],
       "after": ["<Esc>"],
       "commands": [
         {
@@ -92,7 +92,7 @@
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
-      "before": [ "leader", "w" ],
+      "before": [ "leader", "s" ],
       "after": [],
       "commands": [
         {
@@ -102,7 +102,7 @@
       ]
     },
     {
-      "before": ["leader", "q"],
+      "before": ["leader", "w"],
       "after": [],
       "commands": [
         {
@@ -194,7 +194,7 @@
       ]
     },
     {
-      "before": [ "leader", "s", "l" ],
+      "before": [ "leader", "v", "l" ],
       "after": [],
       "commands": [
         {
@@ -203,7 +203,7 @@
       ]
     },
     {
-      "before": [ "leader", "s", "h" ],
+      "before": [ "leader", "v", "h" ],
       "after": [],
       "commands": [
         {
@@ -212,7 +212,7 @@
       ]
     },
     {
-      "before": [ "leader", "s", "e" ],
+      "before": [ "leader", "v", "e" ],
       "after": [],
       "commands": [
         {
@@ -221,7 +221,7 @@
       ]
     },
     {
-      "before": [ "leader", "s", "m" ],
+      "before": [ "leader", "v", "m" ],
       "after": [],
       "commands": [
         {
@@ -336,5 +336,6 @@
     "statusBar.debuggingBackground": "#44475a"
   },
   "vim.disableAnnoyingNeovimMessage": true,
-  "vim.disableAnnoyingGcMessage": true
+  "vim.disableAnnoyingGcMessage": true,
+  "vsicons.dontShowNewVersionMessage": true
 }

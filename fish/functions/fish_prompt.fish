@@ -4,13 +4,13 @@ function fish_prompt
   set -l last_status $status
 
   set_color normal
-  set_color -r BD93F9
+  set_color -r brblue
   printf "\uE0B0"
   set_color normal
-  set_color -b BD93F9 282a36
+  set_color -r blue 
   printf " %s " (_pwd_with_tilde)
   set_color normal
-  set_color BD93F9
+  set_color blue
   printf "\uE0B0"
   set_color normal
   printf " "

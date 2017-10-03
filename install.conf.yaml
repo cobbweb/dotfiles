@@ -17,14 +17,16 @@
 
     # VIM/NVIM
     ~/.vimrc: vim/vimrc
-    ~/.config/nvim/init.vim: vim/nvimrc
+    ~/.config/nvim/init.vim: 
+        path: vim/nvimrc
+        create: true
 
     # ATOM EDITOR
     ~/.atom:
       relink: true
 
     # VSCODE
-    ~/Library/Application Support/Code/User:
+    ~/.config/Code/User:
         path: vscode
         relink: true
         

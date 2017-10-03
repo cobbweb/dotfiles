@@ -148,16 +148,15 @@ set mouse=a
 
 " EDITING UI AND HIGHLIGHTING
 set termguicolors
-if exists('$TMUX')
-  set t_Co=256
-endif
 
 colorscheme dracula
 " let g:quantum_black=1
-let g:neodark#background = '#202020'
+" let g:neodark#background = '#202020'
 set background=dark
+set number
 set relativenumber
 set cursorline
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 " guifont breaks in VimR
 " set guifont=FuraCode\ Nerd\ Font\ Medium:h16
 
