@@ -88,7 +88,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'sbdchd/neoformat'
     let g:neoformat_enabled_javascript = ['prettier']
-    autocmd BufWritePre *.js,*.jsx Neoformat prettier
+    let g:neoformat_enabled_typescript = ['prettier']
+    let g:neoformat_enabled_css = ['prettier']
+    autocmd BufWritePre *.js,*.jsx,*.ts Neoformat prettier
     
   " Plug 'w0rp/ale', { 'on': ['ALEEnable', 'ALEToggle'] }
 
@@ -99,6 +101,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " JAVASCRIPT
   " Base lang support from vim-polyglot
   Plug 'mxw/vim-jsx' 
+  Plug 'mhartington/nvim-typescript'
   Plug 'carlitux/deoplete-ternjs'
   Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
     autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
@@ -135,6 +138,7 @@ call plug#end()
 
 
 " Settings
+let mapleader="\<DEL>"
 set encoding=utf8
 set whichwrap+=<,>,[,]
 set colorcolumn=80
@@ -158,7 +162,7 @@ set relativenumber
 set cursorline
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 " guifont breaks in VimR
-" set guifont=FuraCode\ Nerd\ Font\ Medium:h16
+set guifont=FuraCode\ Nerd\ Font\ Medium:h14
 
 
 " Split tricks
@@ -205,6 +209,9 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=*.sw?
 set wildignore+=.DS_Store
 set wildignore+=node_modules,bower_components,elm-stuff
+
+" Ignore delete key in normal mode (used as leader), prefer x
+nnoremap <del> <nop>
 
 " GUI
 set laststatus=2 " fix vssim-airline not showing

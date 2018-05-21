@@ -30,7 +30,7 @@ set blue (set_color blue)
 set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
 set -gx NODE_ENV local
-set -gx PATH ~/.local/bin ~/.node_modules/bin $PATH
+set -gx PATH ~/.local/bin ~/.node_modules/bin /home/cobbweb/.gem/ruby/2.5.0/bin $PATH
 set -gx npm_config_prefix ~/.node_modules
 
 set -gx fish_color_param $magenta
@@ -71,6 +71,11 @@ source /usr/share/autojump/autojump.fish
 # Tweak fzf to use pt (platiumum search, respects .gitignore)
 set -gx FZF_DEFAULT_COMMAND "rg --files --hidden --follow"
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+
+
+
+# virtualenv support
+eval (python -m virtualfish)
 
 
 # SETUP iTerm2 INTEGRATION

@@ -44,7 +44,7 @@
   ],
   // VIM!!!!!!!!!
   "vim.easymotion": true,
-  "vim.leader": "\\",
+  "vim.leader": "<delete>",
   "vim.statusBarColorControl": true,
   "vim.enableNeovim": false,
   "scrolloff.scrolloff": 8,
@@ -58,7 +58,7 @@
   },
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": ["leader", "s"],
+      "before": ["<leader>", "s"],
       "after": ["<Esc>"],
       "commands": [
         {
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "before": ["leader", "," ],
+      "before": ["<leader>", "," ],
       "after": [],
       "commands": [
         {
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "before": [ "leader", ";" ],
+      "before": [ "<leader>", ";" ],
       "after": [],
       "commands": [
         {
@@ -92,7 +92,7 @@
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
-      "before": [ "leader", "s" ],
+      "before": [ "<leader>", "s" ],
       "after": [],
       "commands": [
         {
@@ -102,7 +102,7 @@
       ]
     },
     {
-      "before": ["leader", "w"],
+      "before": ["<leader>", "w"],
       "after": [],
       "commands": [
         {
@@ -126,14 +126,14 @@
       "commands": []
     },
     {
-      "before": [ "leader", "p" ],
+      "before": [ "<leader>", "p" ],
       "after": [],
       "commands": [
         { "command": "workbench.action.quickOpen" }
       ]
     },
     {
-      "before": [ "leader", "," ],
+      "before": [ "<leader>", "," ],
       "after": [],
       "commands": [
         {
@@ -142,7 +142,7 @@
       ]
     },
     {
-      "before": [ "leader", ";" ],
+      "before": [ "<leader>", ";" ],
       "after": [],
       "commands": [
         {
@@ -151,7 +151,7 @@
       ]
     },
     {
-      "before": [ "leader", "b" ],
+      "before": [ "<leader>", "b" ],
       "after": [],
       "commands": [
         {
@@ -160,14 +160,14 @@
       ]
     },
     {
-      "before": [ "leader", "t" ],
+      "before": [ "<leader>", "t" ],
       "after": [],
       "commands": [
         { "command": "workbench.view.explorer" }
       ]
     },
     {
-      "before": [ "leader", "1" ],
+      "before": [ "<leader>", "1" ],
       "after": [],
       "commands": [
         {
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "before": [ "leader", "2" ],
+      "before": [ "<leader>", "2" ],
       "after": [],
       "commands": [
         {
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "before": [ "leader", "3" ],
+      "before": [ "<leader>", "3" ],
       "after": [],
       "commands": [
         {
@@ -194,7 +194,7 @@
       ]
     },
     {
-      "before": [ "leader", "v", "l" ],
+      "before": [ "<leader>", "v", "l" ],
       "after": [],
       "commands": [
         {
@@ -203,7 +203,7 @@
       ]
     },
     {
-      "before": [ "leader", "v", "h" ],
+      "before": [ "<leader>", "v", "h" ],
       "after": [],
       "commands": [
         {
@@ -212,7 +212,7 @@
       ]
     },
     {
-      "before": [ "leader", "v", "e" ],
+      "before": [ "<leader>", "v", "e" ],
       "after": [],
       "commands": [
         {
@@ -221,7 +221,7 @@
       ]
     },
     {
-      "before": [ "leader", "v", "m" ],
+      "before": [ "<leader>", "v", "m" ],
       "after": [],
       "commands": [
         {
@@ -329,7 +329,7 @@
   },
   "typescript.check.tscVersion": false,
   "material-icon-theme.showWelcomeMessage": false,
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
     "statusBar.background": "#44475a",
     "statusBar.noFolderBackground": "#44475a",
@@ -337,5 +337,6 @@
   },
   "vim.disableAnnoyingNeovimMessage": true,
   "vim.disableAnnoyingGcMessage": true,
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "vim.useCtrlKeys": true
 }
