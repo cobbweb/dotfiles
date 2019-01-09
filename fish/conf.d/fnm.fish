@@ -1,1 +1,0 @@
-/home/cobbweb/.config/fisherman/fnm/conf.d/fnm.fish
