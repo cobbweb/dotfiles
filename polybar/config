@@ -57,7 +57,7 @@ font-2 = SF Pro Display:size=16;3
 
 modules-left = i3 spotify
 modules-center = xwindow
-modules-right = volume cpu memory clock
+modules-right = volume cpu memory clock battery
 
 tray-position = right
 tray-offset-y = -80
@@ -122,7 +122,7 @@ format-underline = ${colors.yellow}
 
 [module/clock]
 type = internal/date
-date = %a %d %b %Y %H:%M
+date = %a %d %b %H:%M
 
 label = %date% %time%
 label-font = 1
@@ -162,4 +162,30 @@ format-background = ${colors.background-alt}
 [module/xwindow]
 type = internal/xwindow
 label-font = 3
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT1
+adapter = ADP1
+
+poll-internal = 10
+
+label-charging =  %percentage%%
+format-charging-padding = 1
+format-charging-background = ${colors.background-alt}
+format-charging-underline = ${colors.blue}
+
+label-discharging =  %percentage%%
+label-discharging-padding = 1
+label-discharging-background = ${colors.background-alt}
+label-discharging-underline = ${colors.red}
+
+label-full =  Full
+format-full-padding = 1
+format-full-background = ${colors.background-alt}
+format-full-underline = ${colors.green}
+
 

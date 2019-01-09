@@ -14,6 +14,6 @@ set -gx NVM_DIR "~/.nvm"
 #   bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
 # end
 
-set -gx PATH ~/.yarn/bin/ $PATH
+set -gx PATH ~/.yarn/bin/ ~/.gem/ruby/2.5.0/bin $PATH
 
 status --is-interactive; and source (pyenv init -|psub)
