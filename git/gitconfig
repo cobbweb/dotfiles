@@ -2,9 +2,7 @@
 	default = simple
 [user]
 	name = Andrew Cobby
-	email = andrew.cobby@gmail.com
+	email = andrew.cobby@pm.me
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = nvim +startinsert
-[alias]
-	pyll = pull
+	editor = nvim

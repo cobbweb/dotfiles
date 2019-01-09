@@ -1,81 +1,19 @@
-###################################################
-###################################################
-##    _____      _     _                 _       ##
-##   / ____|    | |   | |               | |      ##
-##  | |     ___ | |__ | |____      _____| |__    ##
-##  | |    / _ \| '_ \| '_ \ \ /\ / / _ \ '_ \   ##
-##  | |___| (_) | |_) | |_) \ V  V /  __/ |_) |  ##
-##   \_____\___/|_.__/|_.__/ \_/\_/ \___|_.__/   ##
-##                                               ##
-###################################################
-###################################################
+alias l="ls -al"
+alias vim="/usr/bin/nvim"
+alias nra="npm-run-all"
+alias vh="/usr/bin/nvim ."
+alias refmt="bsrefmt"
+
+set -gx NODE_ENV 'local'
+set -gx EDITOR 'nvim'
+set -gx VISUAL 'nvim'
+set -gx NVM_DIR "~/.nvm"
 
 
-##
-# Look in ./conf.d and ./functions for most things
-##
+# function nvm
+#   bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
+# end
 
+set -gx PATH ~/.yarn/bin/ $PATH
 
-# COLOR SHORTCUT VARS
-set normal (set_color normal)
-set magenta (set_color magenta)
-set yellow (set_color yellow)
-set green (set_color green)
-set red (set_color red)
-set gray (set_color -o black)
-set blue (set_color blue)
-
-
-# ENVIRONMENT VARIABLES
-set -gx EDITOR nvim
-set -gx VISUAL $EDITOR
-set -gx NODE_ENV local
-set -gx PATH ~/.local/bin ~/.node_modules/bin /home/cobbweb/.gem/ruby/2.5.0/bin $PATH
-set -gx npm_config_prefix ~/.node_modules
-
-set -gx fish_color_param $magenta
-
-# Additional fzf integration
-function fzf-complete -d 'fzf completion and print selection back to commandline'
-  set -l complist (complete -C(commandline -c))
-  set -l result
-  string join -- \n $complist | sort | eval (__fzfcmd) -m --select-1 --exit-0 --header '(commandline)' | cut -f1 | while read -l r; set result $result $r; end
-
-  set prefix (string sub -s 1 -l 1 -- (commandline -t))
-  for i in (seq (count $result))
-    set -l r $result[$i]
-    switch $prefix
-      case "'"
-        commandline -t -- (string escape -- $r)
-      case '"'
-        if string match '*"*' -- $r >/dev/null
-          commandline -t --  (string escape -- $r)
-        else
-          commandline -t -- '"'$r'"'
-        end
-      case '~'
-        commandline -t -- (string sub -s 2 (string escape -n -- $r))
-      case '*'
-        commandline -t -- (string escape -n -- $r)
-    end
-    [ $i -lt (count $result) ]; and commandline -i ' '
-  end
-
-  commandline -f repaint
-end
-
-# Tweak fzf to use pt (platiumum search, respects .gitignore)
-set -gx FZF_DEFAULT_COMMAND "rg --files --hidden --follow"
-set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-
-
-# python shit support
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# SETUP iTerm2 INTEGRATION
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-bind \t fzf-complete
-bind \e\t complete
-bind -M insert \t fzf-complete
-bind -M insert \e\t complete
+status --is-interactive; and source (pyenv init -|psub)

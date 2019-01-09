@@ -1,0 +1,1 @@
+/home/cobbweb/.config/fisherman/z/conf.d/z.fish

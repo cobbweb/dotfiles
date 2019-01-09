@@ -1,0 +1,1 @@
+/home/cobbweb/.config/fisherman/cgitc/init.fish

@@ -7,7 +7,10 @@
     # FISH SHELL
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/conf.d: fish/conf.d
-    ~/.config/fish/functions: fish/functions
+    ~/.config/fish/functions:
+      path: fish/functions/*
+      glob: true
+      create: true
 
     # GIT
     ~/.gitconfig: git/gitconfig
