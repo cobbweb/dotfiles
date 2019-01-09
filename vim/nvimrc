@@ -3,12 +3,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Misc
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-abolish'
-  Plug 'blindFS/vim-taskwarrior'
-  
+
   " Git
   Plug 'tpope/vim-fugitive'
-  Plug 'idanarye/vim-merginal'
-  Plug 'gregsexton/gitv', {'on': ['Gitv']}
 
   " Navigation
   " Plug 'unblevable/quick-scope'
@@ -24,10 +21,10 @@ call plug#begin('~/.local/share/nvim/plugged')
     " different highlight method and have some other features )
     map  n <Plug>(easymotion-next)
     map  N <Plug>(easymotion-prev)
-    
+
 
   " FZF
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
     " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
     command! -bang -nargs=* Rg
@@ -36,14 +33,13 @@ call plug#begin('~/.local/share/nvim/plugged')
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
-    
+
 
     " Command for git grep
     " - fzf#vim#grep(command, with_column, [options], [fullscreen])
     command! -bang -nargs=* GGrep
       \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
-    
-    nnoremap <leader>e :FLines<cr>
+
 
   " Airline
   Plug 'vim-airline/vim-airline'
@@ -56,66 +52,72 @@ call plug#begin('~/.local/share/nvim/plugged')
   " " File exploring
   Plug 'scrooloose/nerdtree'
   Plug 'jistr/vim-nerdtree-tabs'
-    nnoremap <leader>t :NERDTreeTabsToggle<cr>
-    
+
   " UI
   Plug 'airblade/vim-gitgutter'
     " disable default <leader>h mappings
     let g:gitgutter_map_keys = 0
-    
+
   Plug 'junegunn/vim-peekaboo'
-  Plug 'mhinz/vim-startify'
   Plug 'edkolev/tmuxline.vim'
 
   " Style
   Plug 'dracula/vim'
   " Plug 'joshdick/onedark.vim'
-  Plug 'KeitaNakamura/neodark.vim'
+  " Plug 'KeitaNakamura/neodark.vim'
   " Plug 'tyrannicaltoucan/vim-quantum'
   Plug 'nathanaelkane/vim-indent-guides'
 
   " Language features
-  Plug 'Shougo/deoplete.nvim'
-    let g:deoplete#enable_at_startup = 1
+  " Plug 'Shougo/deoplete.nvim'
+  "   let g:deoplete#enable_at_startup = 1
     " let g:deoplete#omni#functions = {}
     " let g:deoplete#sources = {}
     " let g:deoplete#sources._ = ['file', 'neosnippet']
     " let g:deoplete#omni#input_patterns = {}
-    
+
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'ntpeters/vim-better-whitespace'
+    autocmd VimEnter * EnableStripWhitespaceOnSave
+
+  " Plug 'prettier/vim-prettier', {
+  "   \ 'do': 'yarn install',
+  "   \ 'for': ['javascript', 'typescript'] }
+  "   let g:prettier#autoformat = 0
+  "   autocmd BufWritePre *.js,*.ts,*.tsx,*.jsx PrettierAsync
   Plug 'sbdchd/neoformat'
     let g:neoformat_enabled_javascript = ['prettier']
     let g:neoformat_enabled_typescript = ['prettier']
-    let g:neoformat_enabled_css = ['prettier']
-    autocmd BufWritePre *.js,*.jsx,*.ts Neoformat prettier
-    
+"    let g:neoformat_enabled_css = ['prettier']
+    autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx Neoformat prettier
+
   " Plug 'w0rp/ale', { 'on': ['ALEEnable', 'ALEToggle'] }
 
   " Languages
   Plug 'sheerun/vim-polyglot'
     let g:polyglot_disabled = ['elm']
-    
+
   " JAVASCRIPT
   " Base lang support from vim-polyglot
-  Plug 'mxw/vim-jsx' 
-  Plug 'mhartington/nvim-typescript'
-  Plug 'carlitux/deoplete-ternjs'
-  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-    autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-    let g:tern#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'javascript',
-                \ ]
-  
+"  Plug 'mxw/vim-jsx'
+  " Plug 'mhartington/nvim-typescript'
+  " Plug 'carlitux/deoplete-ternjs'
+  " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+  "   autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+  "   let g:tern#filetypes = [
+  "               \ 'jsx',
+  "               \ 'javascript.jsx',
+  "               \ 'javascript',
+  "               \ ]
+
   Plug 'alx741/vim-hindent'
   Plug 'mattn/emmet-vim'
-  
+
   " Elm
-  Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
+  " Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
   Plug 'ElmCast/elm-vim', { 'for': 'elm' }
     let g:elm_format_autosave = 1
     let g:elm_detailed_complete = 1
@@ -128,7 +130,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " let g:deoplete#omni#functions.elm = ['elm#Complete']
     " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
     " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
-    
+
   " Run last, as per devicons README
   Plug 'ryanoasis/vim-devicons'
     let g:airline_powerline_fonts = 1
@@ -150,18 +152,19 @@ set hidden
 " Mouse
 set mouse=a
 
-" EDITING UI AND HIGHLIGHTING
-set termguicolors
+" Python monkey business
+let g:python_host_prog = '/home/cobbweb/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/home/cobbweb/.pyenv/versions/neovim3/bin/python'
 
-colorscheme dracula
-" let g:quantum_black=1
-" let g:neodark#background = '#202020'
+" EDITING UI AND HIGHLIGHTING
+" set termguicolors
+
+color dracula
 set background=dark
 set number
 set relativenumber
 set cursorline
-set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
-" guifont breaks in VimR
+" set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 set guifont=FuraCode\ Nerd\ Font\ Medium:h14
 
 
@@ -174,12 +177,12 @@ set splitright
 
 " Code completion settings
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " tern
 
 " Cool conceal
-let g:javascript_conceal_null = "ø"
-let g:javascript_conceal_static = "@"
+"let g:javascript_conceal_null = "ø"
+"let g:javascript_conceal_static = "@"
 " let g:javascript_conceal_this = "@"
 
 " Syntax highlighting tweaks
@@ -195,13 +198,20 @@ highlight link jsFauxConstant Boolean
 " Auto Semi-colon & comma
 nnoremap <leader>; me:call ToggleEndChar(';')<cr>`e
 nnoremap <leader>, me:call ToggleEndChar(',')<cr>`e
-inoremap <leader>; <Esc>me:call ToggleEndChar(';')<cr>`ea
-inoremap <leader>, <Esc>me:call ToggleEndChar(',')<cr>`ea
+"inoremap <leader>; <Esc>me:call ToggleEndChar(';')<cr>`ea
+"inoremap <leader>, <Esc>me:call ToggleEndChar(',')<cr>`ea
 
 function! ToggleEndChar(charToMatch)
     s/\v(.)$/\=submatch(1)==a:charToMatch ? '' : submatch(1).a:charToMatch
 endfunction
 
+" Function prevent FZF opening files in NERDTree's sidebar buffer
+function! OpenFile(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
+  endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
 
 " File ignores
 set wildignore+=.git,.svn
@@ -217,16 +227,19 @@ nnoremap <del> <nop>
 set laststatus=2 " fix vssim-airline not showing
 
 " Bindings
+nnoremap <leader>t :NERDTreeTabsToggle<cr>
+
 " Fuzzy open files
-noremap <leader>p :Files<cr>
+noremap <leader>p :call OpenFile(':Files')<cr>
 
 " Saving, closing and quiting
-inoremap <leader>s <Esc>:w<cr>
+"inoremap <leader>s <Esc>:w<cr>
 nnoremap <leader>s :w<cr>
-inoremap <leader>q <Esc>:q<cr>
+"inoremap <leader>q <Esc>:q<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>w :bp<bar>sp<bar>bn<bar>bd<CR><cr>
+nnoremap <leader>w :bp<bar>sp<bar>bn<bar>bd!<CR><cr>
 
 " Clear current highlighting
 nnoremap <leader><esc> :noh<cr>
@@ -238,16 +251,16 @@ nnoremap <leader><esc> :noh<cr>
 " map <C-l> <C-W>l
 
 " Buffer switching
-noremap <leader>a :bprevious<cr>
-noremap <leader>l :bnext<cr>
+noremap <silent> <leader>a :bprevious<cr>
+noremap <silent> <leader>l :bnext<cr>
 
 " Finding lines of code
-nnoremap <leader>ff :Lines<cr>
-nnoremap <leader>fp :GGrep<cr>
+nnoremap <silent> <leader>ff :call OpenFile(':Lines')<cr>
+nnoremap <silent> <leader>fp :call OpenFile(':GGrep')<cr>
 
 " Exiting insert mode hacks
-inoremap jw <Esc>
-inoremap wj <Esc>
+"inoremap jw <Esc>
+"inoremap wj <Esc>
 
 " Git Gutter
 noremap <leader>ghs :GitGutterStageHunk<cr>
@@ -261,3 +274,4 @@ inoremap <CR> <CR>x<BS>
 nnoremap o ox<BS>
 nnoremap O Ox<BS>
 
+color dracula

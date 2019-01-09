@@ -64,19 +64,14 @@ function fzf-complete -d 'fzf completion and print selection back to commandline
   commandline -f repaint
 end
 
-
-# SETUP AUTOJUMP
-source /usr/share/autojump/autojump.fish
-
 # Tweak fzf to use pt (platiumum search, respects .gitignore)
 set -gx FZF_DEFAULT_COMMAND "rg --files --hidden --follow"
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
 
-
-# virtualenv support
-eval (python -m virtualfish)
-
+# python shit support
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # SETUP iTerm2 INTEGRATION
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
