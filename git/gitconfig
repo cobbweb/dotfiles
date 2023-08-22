@@ -1,8 +1,0 @@
-[push]
-	default = simple
-[user]
-	name = Andrew Cobby
-	email = andrew.cobby@pm.me
-[core]
-	excludesfile = ~/.gitignore_global
-	editor = nvim
