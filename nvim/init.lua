@@ -18,25 +18,22 @@ if is_wsl then
   }
 end
 
-vim.o.guifont = "FiraCode Nerd Font:h12"
 
-vim.g.neovide_scale_factor = 1.0
-local change_scale_factor = function(delta)
-  vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+local function copy(lines, _)
+  require('osc52').copy(table.concat(lines, '\n'))
 end
-vim.keymap.set("n", "<C-=>", function()
-  change_scale_factor(1.25)
-end)
-vim.keymap.set("n", "<C-->", function()
-  change_scale_factor(1/1.25)
-end)
 
-if vim.g.neovide then
-  local keymapOpts = {
-    silent = true,
-    noremap = true
-  }
-  vim.keymap.set({ "n", "v", "i" }, "<C-v>", "\"*p", keymapOpts)
-  vim.keymap.set({ "n", "v", "i" }, "<C-c>", "\"*y", keymapOpts)
-  vim.keymap.set({ "n", "v", "i" }, "<C-x>", "\"*x", keymapOpts)
+local function paste()
+  return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
 end
+
+vim.g.clipboard = {
+  name = 'osc52',
+  copy = {['+'] = copy, ['*'] = copy},
+  paste = {['+'] = paste, ['*'] = paste},
+}
+
+-- Now the '+' register will copy to system clipboard using OSC52
+vim.keymap.set('n', '<leader>c', '"+y')
+vim.keymap.set('n', '<leader>cc', '"+yy')
+

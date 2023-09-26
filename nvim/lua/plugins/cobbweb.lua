@@ -3,6 +3,7 @@ local Util = require("lazyvim.util")
 return {
   { "Mofiqul/dracula.nvim" },
   { "nfischer/vim-ohm" },
+  { "ojroques/nvim-osc52" },
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = { "windwp/nvim-ts-autotag" },
@@ -18,9 +19,31 @@ return {
       delete_check_events = { "TextChanged" },
       history = false,
     },
-    keys = function()
-      return {}
-    end,
+    keys = {
+      {
+        "<C-f>",
+        function()
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end,
+        expr = true,
+        silent = true,
+        mode = "i",
+      },
+      {
+        "<C-f>",
+        function()
+          require("luasnip").jump(1)
+        end,
+        mode = "s",
+      },
+      {
+        "<C-b>",
+        function()
+          require("luasnip").jump(-1)
+        end,
+        mode = { "i", "s" },
+      },
+    },
   },
   {
     "williamboman/mason.nvim",
@@ -261,6 +284,20 @@ return {
     end,
   },
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      if type(opts.sources) == "table" then
+        local nls = require("null-ls")
+        vim.list_extend(opts.sources, {
+          nls.builtins.code_actions.gomodifytags,
+          nls.builtins.code_actions.impl,
+          nls.builtins.formatting.gofumpt,
+          nls.builtins.formatting.goimports_reviser,
+        })
+      end
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
@@ -327,6 +364,12 @@ return {
         },
       }
       vim.list_extend(opts.items, items)
+    end,
+  },
+  {
+    "numToStr/Navigator.nvim",
+    opts = function(_, opts)
+      require("Navigator").setup()
     end,
   },
 }

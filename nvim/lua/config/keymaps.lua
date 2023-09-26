@@ -38,3 +38,11 @@ map("n", "<c-/>", function()
   Util.float_term()
 end, { desc = "Terminal (root dir)" })
 map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
+
+
+-- Windows (Vim) & Panes (Wezterm) navigation
+-- Move to window/pane using the <ctrl> hjkl keys
+map("n", "<C-h>", "<CMD>NavigatorLeft<CR>", { desc = "Go to left window", remap = true })
+map("n", "<C-j>", "<CMD>NavigatorDown<CR>", { desc = "Go to lower window", remap = true })
+map("n", "<C-k>", "<CMD>NavigatorUp<CR>", { desc = "Go to upper window", remap = true })
+map("n", "<C-l>", "<CMD>NavigatorRight<CR>", { desc = "Go to right window", remap = true })

@@ -10,33 +10,36 @@ zstyle :compinstall filename '/home/cobbweb/.zshrc'
 autoload -Uz compinit
 compinit
 
-. /opt/asdf-vm/asdf.sh
-
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 eval "$(starship init zsh)"
-eval "$(mcfly init zsh)"
+eval "$(direnv hook zsh)"
+eval "$(devbox global shellenv)"
 
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
 
 # End of lines added by compinstall
-export VOLTA_HOME="$HOME/.volta"
-export PATH="/home/cobbweb/.cargo/bin:/home/cobbweb/.deno/bin:/home/cobbweb/.ebcli-virtual-env/executables:/home/cobbweb/.yarn/bin:$VOLTA_HOME/bin:$PATH"
+export PATH="/home/cobbweb/.cargo/bin:/home/cobbweb/.ebcli-virtual-env/executables:/home/cobbweb/.yarn/bin:$PATH"
 export EDITOR="nvim"
 
-mutagen daemon start
-
-eval "$(direnv hook zsh)"
-
-alias l="exa -alh --icons"
-alias lt="exa -alhT --icons"
+alias l="eza -alh --icons"
+alias lt="eza -alhT --icons"
 alias task="go-task"
+
+alias dc="docker compose"
+alias dcu="docker compose up"
+alias dcud="docker compose up -d"
+alias dcd="docker compose down"
+alias dcr="docker composer restart"
+alias dcl="docker compose logs"
+alias dclf="docker compose logs -f"
 
 alias gst="git status"
 alias gl="git pull --rebase"
 alias gco="git checkout"
+alias gcob="git checkout -b"
 alias ga="git add"
 alias gap="git add --patch"
 alias gb="git branch"
